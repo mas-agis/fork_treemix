@@ -291,6 +291,6 @@ int main(int argc, char *argv[]){
 
     //print the likelihood and number of migration events begin exiting
     likout << "Exiting ln(likelihood) with "<< state.get_nmig() <<" migration events: "<< state.llik() << " \n";
-    cout << "DONE.";
+    cout << "DONE.\n";
 	return 0;
 }
