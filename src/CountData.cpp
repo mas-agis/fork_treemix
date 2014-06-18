@@ -530,7 +530,7 @@ void CountData::set_alfreqs_micro(){
 			double v = micro_lens[i][j].at(1);
 			double n = micro_lens[i][j].at(2);
 			if ( n < 1){
-				cerr << "Warning: no alleles at locus "<< i << " population "<< j <<"\n";
+				cerr << "WARNING: no alleles at locus "<< i << " population "<< j <<"\n";
 				float h = 0.0;
 				m = 0/h;
 				//cout << m << "0 n \n"; cout.flush();
@@ -568,7 +568,7 @@ void CountData::set_alfreqs(){
 			int c2 = allele_counts[i][j].second;
 			double f = (double) c1 / ( (double) c1 + (double) c2 );
 			if ( c1+c2 < 1){
-				cerr << "Warning: no counts at SNP "<< i << " population "<< j <<"\n";
+				cerr << "WARNING: no counts at SNP "<< i << " population "<< j <<"\n";
 				gsl_matrix_set(alfreqs, i, j, f);
 				continue;
 			}
@@ -1113,11 +1113,11 @@ void CountData::process_cov(){
 double CountData::get_cov(string pop1, string pop2){
 
 	if (pop2id.find(pop1)  == pop2id.end()) {
-		cerr << "No population "<< pop1 << "\n";
+		cerr << "ERROR: No population "<< pop1 << "\n";
 		exit(1);
 	}
 	if (pop2id.find(pop2)  == pop2id.end()) {
-		cerr << "No population "<< pop2 << "\n";
+		cerr << "ERROR: No population "<< pop2 << "\n";
 		exit(1);
 	}
 
@@ -1132,11 +1132,11 @@ double CountData::get_cov(string pop1, string pop2){
 double CountData::get_scatter(string pop1, string pop2){
 
 	if (pop2id.find(pop1)  == pop2id.end()) {
-		cerr << "No population "<< pop1 << "\n";
+		cerr << "ERROR: No population "<< pop1 << "\n";
 		exit(1);
 	}
 	if (pop2id.find(pop2)  == pop2id.end()) {
-		cerr << "No population "<< pop2 << "\n";
+		cerr << "ERROR: No population "<< pop2 << "\n";
 		exit(1);
 	}
 
@@ -1149,11 +1149,11 @@ double CountData::get_scatter(string pop1, string pop2){
 
 double CountData::get_cov_var(string pop1, string pop2){
 	if (pop2id.find(pop1)  == pop2id.end()) {
-		cerr << "No population "<< pop1 << "\n";
+		cerr << "ERROR: No population "<< pop1 << "\n";
 		exit(1);
 	}
 	if (pop2id.find(pop2)  == pop2id.end()) {
-		cerr << "No population "<< pop2 << "\n";
+		cerr << "ERROR: No population "<< pop2 << "\n";
 		exit(1);
 	}
 

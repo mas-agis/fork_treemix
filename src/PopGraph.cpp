@@ -45,7 +45,7 @@ PopGraph::PopGraph(vector<string> first3pops){
 	//          /   /\
 	//         1    2 3
 	if (first3pops.size() != 3) {
-		std::cout << "Error initializing PopGraph: need 3 pops, not "<< first3pops.size() << "\n";
+		std::cout << "ERROR: Error initializing PopGraph: need 3 pops, not "<< first3pops.size() << "\n";
 		exit(1);
 	}
 	v3 = add_vertex(g);

@@ -1858,7 +1858,7 @@ void GraphState2::set_branches_ls_wmig_estmig(){
 		if (root_adj.find(index_vertex) != root_adj.end()) f = f/2;
 		int i;
 		if (vertex2index.find(index_vertex) == vertex2index.end()){
-			cerr << "Error in least squares estimation: vertex "<< tree->g[index_vertex].index << " not found in the list of vertices\n";
+			cerr << "ERROR: Error in least squares estimation: vertex "<< tree->g[index_vertex].index << " not found in the list of vertices\n";
 			exit(1);
 		}
 		else i = vertex2index[index_vertex];
@@ -3013,7 +3013,7 @@ void GraphState2::add_pop(){
 		}
 		if (max_llik <= -DBL_MAX){
 			cerr <<"ERROR: numerical problem in likelihood [ln(lk) = "<< max_llik << "]\n";
-			cerr <<"Please report this bug.\n";
+			cerr <<"ERROR: Please report this bug.\n";
 			exit(1);
 			/*
 			cout << "RESCALING\n"; cout.flush();
@@ -3119,7 +3119,7 @@ void GraphState2::add_pop(string name, map<string, double> migfracs){
 	}
 	if (max_llik <= -DBL_MAX){
 		cerr <<"ERROR: numerical problem in likelihood [ln(lk) = "<< max_llik << "]\n";
-		cerr <<"Please report this bug.\n";
+		cerr <<"ERROR: Please report this bug.\n";
 		exit(1);
 		/*
 		cout << "RESCALING\n"; cout.flush();
