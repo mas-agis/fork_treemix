@@ -53,7 +53,7 @@ CountData::CountData(string infile, PhyloPop_params* p){
 
 
 CountData::CountData(string infile){
-	cerr << "Do not use this constructor for CountData!\n"; exit(1);
+	cerr << "ERROR: Do not use this constructor for CountData!\n"; exit(1);
 	read_counts(infile);
 	cout << "npop:"<< npop<< " nsnp:"<<nsnp<< "\n";
 	alfreqs = gsl_matrix_alloc(nsnp, npop);
@@ -307,7 +307,7 @@ void CountData::read_counts(string infile){
     a2.clear();
     string ext = infile.substr(infile.size()-3, 3);
     if (ext != ".gz"){
-    	std::cerr << infile << " is not gzipped (only .gz files accepted)\n";
+    	std::cerr << "ERROR: " << infile << " is not gzipped (only .gz files accepted)\n";
     	exit(1);
     }
 	igzstream in(infile.c_str()); //only gzipped files
@@ -400,7 +400,7 @@ void CountData::read_micro_data(string infile){
     a2.clear();
     string ext = infile.substr(infile.size()-3, 3);
     if (ext != ".gz"){
-    	std::cerr << infile << " is not gzipped (only .gz files accepted)\n";
+    	std::cerr << "ERROR:" << infile << " is not gzipped (only .gz files accepted)\n";
     	exit(1);
     }
 	igzstream in(infile.c_str()); //only gzipped files
@@ -1298,7 +1298,7 @@ string CountData::get_pop_in_index(int index){
 		it++;
 	}
 	if (it == pop2id.end()) {
-		cerr << "Trying to get index "<< index << " in CountData, none found\n";
+		cerr << "ERROR: Trying to get index "<< index << " in CountData, none found\n";
 		exit(1);
 	}
 	return toreturn;
@@ -2082,7 +2082,7 @@ void CountData::set_hzy_fromfile(string infile){
              string pop = line[0];
              double hzy = atof(line[1].c_str());
              if (pop2id.find(pop) == pop2id.end()){
-            	 cerr << "Cannot find population "<< pop << " when reading hzy\n";
+            	 cerr << "ERROR: Cannot find population "<< pop << " when reading hzy\n";
             	 exit(1);
              }
              int popid = pop2id[pop];
