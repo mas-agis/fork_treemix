@@ -19,6 +19,7 @@ void printv(){
 }
 void printopts(){
 	cout << "Options:\n";
+    cout << "-h display this help\n";
 	cout << "-i [file name] input file\n";
 	cout << "-o [stem] output stem (will be [stem].treeout.gz, [stem].cov.gz, [stem].modelcov.gz)\n";
 	cout << "-k [int] number of SNPs per block for estimation of covariance matrix (1)\n";
@@ -45,6 +46,10 @@ int main(int argc, char *argv[]){
     CCmdLine cmdline;
     PhyloPop_params p;
     if (cmdline.SplitLine(argc, argv) < 1){
+    	printopts();
+    	exit(0);
+    }
+    if (cmdline.HasSwitch("-h")) {
     	printopts();
     	exit(1);
     }
