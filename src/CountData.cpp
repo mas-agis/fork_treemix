@@ -531,11 +531,12 @@ void CountData::set_alfreqs_micro(){
 			double n = micro_lens[i][j].at(2);
 			if ( n < 1){
                 bool display_warn = false;
+                bool info_msg = false;
                 if((params->num_warnings) > 0) {
                     display_warn = true;
                     --(params->num_warnings);
                     if((params->num_warnings) == 0) {
-                        cerr << "Suppressing further warnings\n";    
+                        info_msg = true;
                     }
                 } else if((params->num_warnings) == -1) {
                     display_warn = true;
@@ -543,6 +544,9 @@ void CountData::set_alfreqs_micro(){
 
                 if(display_warn) {
                     cerr << "WARNING: no alleles at locus "<< i << " population "<< j <<"\n";
+                    if(info_msg) {
+                        cerr << "Suppressing further warnings\n";    
+                    }
                 }
                 
 				float h = 0.0;
@@ -583,11 +587,12 @@ void CountData::set_alfreqs(){
 			double f = (double) c1 / ( (double) c1 + (double) c2 );
 			if ( c1+c2 < 1) {
                 bool display_warn = false;
+                bool info_msg = false;
                 if((params->num_warnings) > 0) {
 				    display_warn = true;
                     --(params->num_warnings);
                     if((params->num_warnings) == 0) {
-                        cerr << "Suppressing further warnings\n";    
+                        info_msg = true;
                     }
                 } else if((params->num_warnings) == -1) {
                     display_warn = true;
@@ -595,6 +600,9 @@ void CountData::set_alfreqs(){
 
                 if(display_warn) {
                     cerr << "WARNING: no counts at SNP "<< i << " population "<< j <<"\n";
+                    if(info_msg) {
+                        cerr << "Suppressing further warnings\n";    
+                    }
                 }
 				gsl_matrix_set(alfreqs, i, j, f);
 				continue;
