@@ -34,6 +34,7 @@ void printopts(){
     cout << "-cor_mig [file] list of known migration events to include (also use -climb)\n";
     cout << "-noss Turn off sample size correction\n";
     cout << "-seed [int] Set the seed for random number generation\n";
+    cout << "-no_warn Suppress warnings\n";
 
     cout << "\n";
 }
@@ -142,6 +143,8 @@ int main(int argc, char *argv[]){
     	p.seed = atoi(cmdline.GetArgument("-seed", 0).c_str());
     }
     else p.seed = unsigned( time(NULL));
+
+    if (cmdline.HasSwitch("-no_warn")) p.suppress_warnings = true;
 
     //random number generator
     const gsl_rng_type * T;

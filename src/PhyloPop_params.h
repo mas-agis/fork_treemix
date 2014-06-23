@@ -110,6 +110,9 @@ public:
 	string flipstring;
 	// seed random number generator
 	unsigned int seed;
+
+	// warning suppression
+	bool suppress_warnings;
 };
 
 #endif /* PHYLOPOP_PARAMS_H_ */

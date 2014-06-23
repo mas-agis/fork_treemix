@@ -60,6 +60,7 @@ PhyloPop_params::PhyloPop_params(){
 	flip = false;
 	print_hzy = false;
 	seed = 0;
+	suppress_warnings = false;
 }
 
 void PhyloPop_params::read_migfracs(string infile){
