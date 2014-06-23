@@ -60,7 +60,7 @@ PhyloPop_params::PhyloPop_params(){
 	flip = false;
 	print_hzy = false;
 	seed = 0;
-	suppress_warnings = false;
+	num_warnings = -1; // warning suppression - number of warnings to show (-1 indicates show all)
 }
 
 void PhyloPop_params::read_migfracs(string infile){

@@ -111,8 +111,8 @@ public:
 	// seed random number generator
 	unsigned int seed;
 
-	// warning suppression
-	bool suppress_warnings;
+	// warning suppression - define number of warnings to show (-1 indicates show all)
+	int num_warnings;
 };
 
 #endif /* PHYLOPOP_PARAMS_H_ */
