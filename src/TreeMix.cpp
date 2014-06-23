@@ -18,30 +18,30 @@ void printv(){
 	cout << "$Revision: 231 $\n\n";
 }
 void printopts(){
-	cout << "Options:\n";
+    cout << "Options:\n";
     cout << "-h display this help\n";
-	cout << "-i [file name] input file\n";
-	cout << "-o [stem] output stem (will be [stem].treeout.gz, [stem].cov.gz, [stem].modelcov.gz)\n";
-	cout << "-k [int] number of SNPs per block for estimation of covariance matrix (1)\n";
-	cout << "-global Do a round of global rearrangements after adding all populations\n";
-	cout << "-tf [file name] Read the tree topology from a file, rather than estimating it\n";
-	cout << "-m [int] number of migration edges to add (0)\n";
-	cout << "-root [string] comma-delimited list of populations to set on one side of the root (for migration)\n";
-	cout << "-g [vertices file name] [edges file name] read the graph from a previous TreeMix run\n";
-	cout << "-se Calculate standard errors of migration weights (computationally expensive)\n";
-	cout << "-micro microsatellite data\n";
-	cout << "-bootstrap Perform a single bootstrap replicate\n";
-	cout << "-cor_mig [file] list of known migration events to include (also use -climb)\n";
-	cout << "-noss Turn off sample size correction\n";
-	cout << "-seed [int] Set the seed for random number generation\n";
+    cout << "-i [file name] input file\n";
+    cout << "-o [stem] output stem (will be [stem].treeout.gz, [stem].cov.gz, [stem].modelcov.gz)\n";
+    cout << "-k [int] number of SNPs per block for estimation of covariance matrix (1)\n";
+    cout << "-global Do a round of global rearrangements after adding all populations\n";
+    cout << "-tf [file name] Read the tree topology from a file, rather than estimating it\n";
+    cout << "-m [int] number of migration edges to add (0)\n";
+    cout << "-root [string] comma-delimited list of populations to set on one side of the root (for migration)\n";
+    cout << "-g [vertices file name] [edges file name] read the graph from a previous TreeMix run\n";
+    cout << "-se Calculate standard errors of migration weights (computationally expensive)\n";
+    cout << "-micro microsatellite data\n";
+    cout << "-bootstrap Perform a single bootstrap replicate\n";
+    cout << "-cor_mig [file] list of known migration events to include (also use -climb)\n";
+    cout << "-noss Turn off sample size correction\n";
+    cout << "-seed [int] Set the seed for random number generation\n";
 
-	cout << "\n";
+    cout << "\n";
 }
 
 
 
 int main(int argc, char *argv[]){
-	printv();
+    printv();
 
     CCmdLine cmdline;
     PhyloPop_params p;
@@ -67,7 +67,7 @@ int main(int argc, char *argv[]){
       	p.vfile = cmdline.GetArgument("-g", 0);
       	p.efile = cmdline.GetArgument("-g", 1);
       	p.read_graph = true;
-      }
+    }
     if (cmdline.HasSwitch("-noss")) p.sample_size_correct = false;
     if (cmdline.HasSwitch("-printhzy")) p.print_hzy = true;
     if (cmdline.HasSwitch("-arcsin")) p.alfreq_scaling = 1;
@@ -137,7 +137,7 @@ int main(int argc, char *argv[]){
      	p.cor_mig = true;
      	//p.corpop = cmdline.GetArgument("-cor_mig", 0);
      	p.read_migfracs(cmdline.GetArgument("-cor_mig", 0) );
-     }
+    }
     if (cmdline.HasSwitch("-seed")){
     	p.seed = atoi(cmdline.GetArgument("-seed", 0).c_str());
     }
