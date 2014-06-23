@@ -545,7 +545,7 @@ void CountData::set_alfreqs_micro(){
                 if(display_warn) {
                     cerr << "WARNING: no alleles at locus "<< i << " population "<< j <<"\n";
                     if(info_msg) {
-                        cerr << "Suppressing further warnings\n";    
+                        cerr << "WARNING: Suppressing further warnings\n";    
                     }
                 }
                 
@@ -601,7 +601,7 @@ void CountData::set_alfreqs(){
                 if(display_warn) {
                     cerr << "WARNING: no counts at SNP "<< i << " population "<< j <<"\n";
                     if(info_msg) {
-                        cerr << "Suppressing further warnings\n";    
+                        cerr << "WARNING: Suppressing further warnings\n";    
                     }
                 }
 				gsl_matrix_set(alfreqs, i, j, f);
