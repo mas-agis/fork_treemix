@@ -50,8 +50,8 @@ int main(int argc, char *argv[]){
     	exit(0);
     }
     if (cmdline.HasSwitch("-h")) {
-    	printopts();
-    	exit(1);
+        printopts();
+        exit(1);
     }
     if (cmdline.HasSwitch("-i")) infile = cmdline.GetArgument("-i", 0).c_str();
     else{
