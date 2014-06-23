@@ -534,6 +534,9 @@ void CountData::set_alfreqs_micro(){
                 if((params->num_warnings) > 0) {
                     display_warn = true;
                     --(params->num_warnings);
+                    if((params->num_warnings) == 0) {
+                        cerr << "Suppressing further warnings\n";    
+                    }
                 } else if((params->num_warnings) == -1) {
                     display_warn = true;
                 }
@@ -583,6 +586,9 @@ void CountData::set_alfreqs(){
                 if((params->num_warnings) > 0) {
 				    display_warn = true;
                     --(params->num_warnings);
+                    if((params->num_warnings) == 0) {
+                        cerr << "Suppressing further warnings\n";    
+                    }
                 } else if((params->num_warnings) == -1) {
                     display_warn = true;
                 }
