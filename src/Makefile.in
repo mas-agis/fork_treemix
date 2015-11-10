@@ -78,7 +78,7 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 bin_PROGRAMS = treemix$(EXEEXT) threepop$(EXEEXT) fourpop$(EXEEXT) \
-	f4ratio$(EXEEXT) drifts$(EXEEXT)
+	f4ratio$(EXEEXT)
 subdir = src
 DIST_COMMON = $(srcdir)/Makefile.in $(srcdir)/Makefile.am \
 	$(top_srcdir)/depcomp $(noinst_HEADERS)
@@ -93,11 +93,6 @@ CONFIG_CLEAN_FILES =
 CONFIG_CLEAN_VPATH_FILES =
 am__installdirs = "$(DESTDIR)$(bindir)"
 PROGRAMS = $(bin_PROGRAMS)
-am_drifts_OBJECTS = drifts.$(OBJEXT) gzstream.$(OBJEXT) \
-	PopGraph.$(OBJEXT) nnls.$(OBJEXT) PhyloPop_params.$(OBJEXT) \
-	CountData.$(OBJEXT) CmdLine.$(OBJEXT) GraphState2.$(OBJEXT)
-drifts_OBJECTS = $(am_drifts_OBJECTS)
-drifts_LDADD = $(LDADD)
 am_f4ratio_OBJECTS = f4_ratio.$(OBJEXT) gzstream.$(OBJEXT) \
 	PopGraph.$(OBJEXT) nnls.$(OBJEXT) PhyloPop_params.$(OBJEXT) \
 	CountData.$(OBJEXT) CmdLine.$(OBJEXT) GraphState2.$(OBJEXT)
@@ -147,9 +142,9 @@ AM_V_CXXLD = $(am__v_CXXLD_@AM_V@)
 am__v_CXXLD_ = $(am__v_CXXLD_@AM_DEFAULT_V@)
 am__v_CXXLD_0 = @echo "  CXXLD   " $@;
 am__v_CXXLD_1 = 
-SOURCES = $(drifts_SOURCES) $(f4ratio_SOURCES) $(fourpop_SOURCES) \
-	$(threepop_SOURCES) $(treemix_SOURCES)
-DIST_SOURCES = $(drifts_SOURCES) $(f4ratio_SOURCES) $(fourpop_SOURCES) \
+SOURCES = $(f4ratio_SOURCES) $(fourpop_SOURCES) $(threepop_SOURCES) \
+	$(treemix_SOURCES)
+DIST_SOURCES = $(f4ratio_SOURCES) $(fourpop_SOURCES) \
 	$(threepop_SOURCES) $(treemix_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
@@ -269,7 +264,6 @@ top_builddir = @top_builddir@
 top_srcdir = @top_srcdir@
 DISTCHECK_CONFIGURE_FLAGS = LDFLAGS=-L/opt/local/lib CXXFLAGS=-I/opt/local/include
 treemix_SOURCES = TreeMix.cpp gzstream.cpp PopGraph.cpp nnls.cpp PhyloPop_params.cpp CountData.cpp CmdLine.cpp GraphState2.cpp
-drifts_SOURCES = drifts.cpp gzstream.cpp PopGraph.cpp nnls.cpp PhyloPop_params.cpp CountData.cpp CmdLine.cpp GraphState2.cpp
 threepop_SOURCES = three_pop.cpp gzstream.cpp PopGraph.cpp nnls.cpp PhyloPop_params.cpp CountData.cpp CmdLine.cpp GraphState2.cpp
 fourpop_SOURCES = four_pop.cpp gzstream.cpp PopGraph.cpp nnls.cpp PhyloPop_params.cpp CountData.cpp CmdLine.cpp GraphState2.cpp
 f4ratio_SOURCES = f4_ratio.cpp gzstream.cpp PopGraph.cpp nnls.cpp PhyloPop_params.cpp CountData.cpp CmdLine.cpp GraphState2.cpp
@@ -351,10 +345,6 @@ uninstall-binPROGRAMS:
 clean-binPROGRAMS:
 	-test -z "$(bin_PROGRAMS)" || rm -f $(bin_PROGRAMS)
 
-drifts$(EXEEXT): $(drifts_OBJECTS) $(drifts_DEPENDENCIES) $(EXTRA_drifts_DEPENDENCIES) 
-	@rm -f drifts$(EXEEXT)
-	$(AM_V_CXXLD)$(CXXLINK) $(drifts_OBJECTS) $(drifts_LDADD) $(LIBS)
-
 f4ratio$(EXEEXT): $(f4ratio_OBJECTS) $(f4ratio_DEPENDENCIES) $(EXTRA_f4ratio_DEPENDENCIES) 
 	@rm -f f4ratio$(EXEEXT)
 	$(AM_V_CXXLD)$(CXXLINK) $(f4ratio_OBJECTS) $(f4ratio_LDADD) $(LIBS)
@@ -383,7 +373,6 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PhyloPop_params.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/PopGraph.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/TreeMix.Po@am__quote@
-@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/drifts.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/f4_ratio.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/four_pop.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/gzstream.Po@am__quote@
