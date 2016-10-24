@@ -218,7 +218,7 @@ void CountData::read_scatter(string infile){
 
     intStat = stat(infile.c_str(), &stFileInfo);
     if (intStat !=0){
-            std::cerr<< "ERROR: cannot open file " << in << "\n";
+            std::cerr<< "ERROR: cannot open file " << infile << "\n";
             exit(1);
     }
     while(getline(in, st)){
@@ -256,7 +256,7 @@ void CountData::read_alfreqs(string infile){
 
     intStat = stat(infile.c_str(), &stFileInfo);
     if (intStat !=0){
-            std::cerr<< "ERROR: cannot open file " << in << "\n";
+            std::cerr<< "ERROR: cannot open file " << infile << "\n";
             exit(1);
     }
     while(getline(in, st)){
@@ -2104,7 +2104,7 @@ void CountData::set_hzy_fromfile(string infile){
     string st, buf;
     intStat = stat(infile.c_str(), &stFileInfo);
     if (intStat !=0){
-            std::cerr<< "ERROR: cannot open file " << in << "\n";
+            std::cerr<< "ERROR: cannot open file " << infile << "\n";
             exit(1);
     }
     while(getline(in, st)){
