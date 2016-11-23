@@ -14,7 +14,7 @@ string infile;
 string outstem = "TreeMix";
 
 void printv(){
-	cout << "\nTreeMix v. 1.12\n";
+	cout << "\nTreeMix v. 1.13\n";
 	cout << "$Revision: 231 $\n\n";
 }
 void printopts(){
